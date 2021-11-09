@@ -1,10 +1,14 @@
 .button {
   position: relative;
-  background-color: #C2AB81;
+  background-color: #c2ab81;
   width: 283px;
   height: 60px;
 
   transform: skew(-20deg);
+
+  &:hover {
+    background-color: rgba(#c2ab81, 0.8);
+  }
 }
 
 .button a {
@@ -30,4 +34,8 @@
   width: 10px;
   height: 100%;
   background-color: #ffffff;
+}
+
+.button:hover a::after {
+  background-color: purple;
 }

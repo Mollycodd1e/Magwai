@@ -1,6 +1,10 @@
 .main-nav {
   position: relative;
   width: 100%;
+  padding: 29px 5.2%;
+  margin: 0 auto;
+  max-width: 1920px;
+  box-sizing: border-box;
 }
 
 .main-nav__wrapper {
@@ -72,6 +76,10 @@
   color: #ffffff;
   text-decoration: none;
   box-sizing: border-box;
+
+  &:hover {
+    color: #c2ab81;
+  }
 }
 
 .main-nav__user-wrapper {
@@ -98,6 +106,12 @@
 .main-nav__phone svg {
   margin-left: 36px;
   margin-top: 20px;
+}
+
+@media (min-width: 1920px) {
+  .main-nav {
+    padding: 29px 100px;
+  }
 }
 
 @media (max-width: 1600px) {
