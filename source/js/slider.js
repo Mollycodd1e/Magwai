@@ -1,68 +1,42 @@
 'use strict';
 
 (function () {
-  var slider = document.querySelector('.main-new');
+  const postList = document.querySelector('.main-page__news-list');
+  const itemWIdth = postList.querySelector('li:first-child').offsetWidth;
+  const dots = document.querySelector('.main-page__select-list').querySelectorAll('.main-page__select-item');;
+  const dotsList = Array.from(dots);
 
-  if (slider) {
+  console.log(dots);
+  console.log(dotsList);
+
+  if (postList) {
     var position = 0;
-    var slidesToShow = 4;
-    var slidesToScroll = 4;
-    var previousButton = slider.querySelector('.main-new__back-button-wrapper button');
-    var nextButton = slider.querySelector('.main-new__forward-button-wrapper button');
-    var sliderList = slider.querySelector('.main-new__product-list');
-    var sliderContainer = slider.querySelector('.main-new__product-list-wrapper');
-    var sliderItems = slider.querySelectorAll('.main-new__product-item');
-    var itemsCount = sliderItems.length;
-    var itemWidth = sliderContainer.clientWidth / slidesToShow;
-    var movePosition = slidesToScroll * itemWidth;
-    var margin = 0;
 
-    if (window.innerWidth < 1024) {
-      slidesToShow = 2;
-      slidesToScroll = 2;
-      var marginRigth = margin + 15;
-      itemWidth = sliderContainer.clientWidth / slidesToScroll;
-    } else {
-      slidesToShow = 4;
-      slidesToScroll = 4;
-      marginRigth = margin;
-      itemWidth = sliderContainer.clientWidth / slidesToScroll;
+    const setActiveElement = function (element) {
+      const activeElement = document.querySelector('.main-page__select-item--active');
+      console.log(activeElement)
+      activeElement.classList.remove('main-page__select-item--active');
+      element.classList.add('main-page__select-item--active');
     }
 
-    previousButton.addEventListener('click', function () {
-
-      position += (movePosition + marginRigth);
-
-      slidingList();
-      checkButtons();
+    window.addEventListener('resize', function() {
+      postList.style.transform = 'translateX(' + 0 + 'px)';
+      setActiveElement(dotsList[0]);
     });
 
-    nextButton.addEventListener('click', function () {
-
-      position -= (movePosition + marginRigth);
-
-      slidingList();
-      checkButtons();
-    });
-
-    var slidingList = function () {
-      sliderList.style.transform = 'translateX(' + position + 'px)';
-    };
-
-    var checkButtons = function () {
-      if (position === 0) {
-        previousButton.setAttribute('disabled', 'disabled');
-      } else {
-        previousButton.removeAttribute('disabled', 'disabled');
-      }
-
-      if (position <= -(itemsCount - slidesToShow) * itemWidth) {
-        nextButton.setAttribute('disabled', 'disabled');
-      } else {
-        nextButton.removeAttribute('disabled', 'disabled');
-      }
-    };
-
-    checkButtons();
+    for (const dot of dotsList) {
+      dot.addEventListener('click', function (evt) {
+        console.log(itemWIdth);
+        if (dotsList.findIndex(dot => evt.target === dot) < dotsList.findIndex(dot => dot.classList.contains('main-page__select-item--active'))) {
+          position += itemWIdth*((dotsList.findIndex(dot => dot.classList.contains('main-page__select-item--active')))-(dotsList.findIndex(dot => evt.target === dot)));
+          setActiveElement(dot);
+          postList.style.transform = 'translateX(' + position + 'px)';
+        } else if (dotsList.findIndex(dot => evt.target === dot) > dotsList.findIndex(dot => dot.classList.contains('main-page__select-item--active'))) {
+          position = position - itemWIdth*((dotsList.findIndex(dot => evt.target === dot)) - (dotsList.findIndex(dot => dot.classList.contains('main-page__select-item--active'))));
+          setActiveElement(dot);
+          postList.style.transform = 'translateX(' + position + 'px)';
+        }
+      });
+    }
   }
 })();

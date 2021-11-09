@@ -100,40 +100,6 @@
   margin-top: 20px;
 }
 
-.main-nav__application {
-  position: relative;
-  background-color: #C2AB81;
-  min-width: 283px;
-  height: 60px;
-
-  transform: skew(-20deg);
-}
-
-.main-nav__application a {
-  position: relative;
-  display: block;
-  font-size: 12px;
-  line-height: 18px;
-  font-weight: 700;
-  height: 100%;
-  padding: 19px 5px;
-  color: white;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: none;
-  box-sizing: border-box;
-}
-
-.main-nav__application a::after {
-  position: absolute;
-  content: '';
-  top: 0;
-  right: -15px;
-  width: 10px;
-  height: 100%;
-  background-color: #ffffff;
-}
-
 @media (max-width: 1600px) {
   .main-nav {
     position: initial;
@@ -158,7 +124,7 @@
     background-color: $bg-color;
     width: 100%;
     max-width: 100%;
-
+    z-index: 10;
   }
 
   .main-nav__list li {
