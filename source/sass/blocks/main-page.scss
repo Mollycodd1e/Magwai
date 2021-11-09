@@ -11,6 +11,7 @@
   display: flex;
   padding: 0;
   margin: 0;
+  max-width: 1920px;
   list-style: none;
 }
 
@@ -51,15 +52,15 @@
 }
 
 .main-page__news-list li:nth-child(1) {
-  background-image: url("../../img/mask.png");
+  background-image: url("../img/mask.png");
 }
 
 .main-page__news-list li:nth-child(2) {
-  background-image: url("../../img/dogie.png");
+  background-image: url("../img/dogie.png");
 }
 
 .main-page__news-list li:nth-child(3) {
-  background-image: url("../../img/back.png");
+  background-image: url("../img/back.png");
 }
 
 .main-page__content-wrapper {
