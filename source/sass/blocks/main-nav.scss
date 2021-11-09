@@ -106,6 +106,15 @@
 .main-nav__phone svg {
   margin-left: 36px;
   margin-top: 20px;
+  fill: #ffffff;
+}
+
+.main-nav__phone:hover svg {
+  fill: #c2ab81;
+}
+
+.main-nav__phone:hover {
+  border: 1px solid #c2ab81;
 }
 
 @media (min-width: 1920px) {

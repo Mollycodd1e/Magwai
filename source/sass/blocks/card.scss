@@ -1,0 +1,111 @@
+.card {
+  max-width: 1920px;
+  padding: 53px 100px 256px 100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.card h2 {
+  margin: 0;
+  font-family: $montserrat;
+  font-size: 42px;
+  line-height: 51px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.card__desription-wrapper {
+  padding: 25px 24px 30px 24px;
+  background-color: #ffffff;
+}
+
+.card__wrapper ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  margin-top: 53px;
+  list-style: none;
+}
+
+.card__wrapper li {
+  width: 320px;
+  margin-right: 30px;
+}
+
+.card__wrapper li:nth-child(5n + 5) {
+  margin-right: 0;
+}
+
+.card__wrapper li:nth-child(n + 6) {
+  margin-top: 30px;
+}
+
+.card__wrapper img {
+  display: block;
+}
+
+.card__wrapper h3 {
+  font-family: $mulish;
+  margin: 0;
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #171717;
+}
+
+.card__wrapper p {
+  margin: 20px 0;
+  font-family: $montserrat;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+  width: 260px;
+  color: #171717;
+}
+
+.card__wrapper span {
+  font-family: $montserrat;
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #171717;
+}
+
+.card__author-wrapper p {
+  margin: 0;
+  margin-top: 20px;
+  font-family: $montserrat;
+  font-size: 12px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #666666;
+}
+
+.card__author-wrapper span {
+  font-weight: 700;
+}
+
+.card__wrapper a {
+  display: block;
+  margin-top: 25px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-family: $mulish;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #171717;
+}
+
+.card__button {
+  margin: 0 auto;
+  margin-top: 60px;
+}

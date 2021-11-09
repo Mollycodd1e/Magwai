@@ -1,0 +1,111 @@
+.news {
+  position: relative;
+  overflow: hidden;
+}
+
+.news__list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  transition-duration: 1s;
+}
+
+.news__list li {
+  position: relative;
+  width: 100%;
+  flex-shrink: 0;
+  min-height: 1033px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.news__size-wrapper {
+  position: relative;
+  max-width: 1920px;
+  height: 100%;
+  padding: 0 5.2%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.news__list h3 {
+  margin: 0;
+  font-family: $montserrat;
+  font-size: 42px;
+  line-height: 51px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.news__list p {
+  font-family: $montserrat;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  margin: 0;
+  margin-top: 40px;
+  opacity: 0.79;
+  color: #ffffff;
+}
+
+.news__list .news__button {
+  margin-top: 40px;
+}
+
+.news__list li:nth-child(1) {
+  background-image: url("../img/mask.png");
+}
+
+.news__list li:nth-child(2) {
+  background-image: url("../img/dogie.png");
+}
+
+.news__list li:nth-child(3) {
+  background-image: url("../img/back.png");
+}
+
+.news__content-wrapper {
+  position: absolute;
+  max-width: 600px;
+  bottom: 177px;
+  z-index: 20;
+}
+
+.news__select-wrapper {
+  position: absolute;
+  bottom: 177px;
+  right: 100px;
+}
+
+.news__select-wrapper ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.news__select-wrapper .news__select-item {
+  margin-top: 15px;
+  opacity: 0.4;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.news__select-wrapper .news__select-item--active {
+  opacity: 1;
+}
+
+.news__select-wrapper .news__select-item:hover {
+  color: #c2ab81;
+  opacity: 1;
+}
+
+@media (min-width: 1920px) {
+  .news__size-wrapper {
+    padding: 0 100px;
+  }
+}
