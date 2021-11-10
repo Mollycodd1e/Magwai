@@ -20,6 +20,17 @@
   border-top-right-radius: 50px;
   background-size: cover;
   background-repeat: no-repeat;
+
+  &::after {
+    position: absolute;
+    content: '';
+    height: 389px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    background: linear-gradient(to top, #131313 0%, rgba(19, 19, 19, 0) 100%);
+  }
 }
 
 .news__size-wrapper {
@@ -79,6 +90,7 @@
   position: absolute;
   bottom: 177px;
   right: 100px;
+  z-index: 20;
 }
 
 .news__select-wrapper ul {
@@ -107,5 +119,10 @@
 @media (min-width: 1920px) {
   .news__size-wrapper {
     padding: 0 100px;
+  }
+
+  .news__select-wrapper {
+    right: 50%;
+    margin-right: -860px;
   }
 }

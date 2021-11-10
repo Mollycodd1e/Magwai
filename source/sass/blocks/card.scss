@@ -1,6 +1,6 @@
 .card {
-  max-width: 1920px;
-  padding: 53px 100px 256px 100px;
+  max-width: 1550px;
+  padding: 53px 5.2% 256px 5.2%;
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -20,9 +20,14 @@
   background-color: #ffffff;
 }
 
+.card__wrapper {
+  margin: 0 auto;
+}
+
 .card__wrapper ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: start;
   padding: 0;
   margin: 0;
   margin-top: 53px;
@@ -31,14 +36,14 @@
 
 .card__wrapper li {
   width: 320px;
-  margin-right: 30px;
+  margin-right: 1.74%;
 }
 
-.card__wrapper li:nth-child(5n + 5) {
+.card__wrapper li:nth-child(4n + 4) {
   margin-right: 0;
 }
 
-.card__wrapper li:nth-child(n + 6) {
+.card__wrapper li:nth-child(n + 5) {
   margin-top: 30px;
 }
 
@@ -49,6 +54,7 @@
 .card__wrapper h3 {
   font-family: $mulish;
   margin: 0;
+  min-height: 26px;
   font-size: 14px;
   line-height: 26px;
   font-weight: 700;
@@ -108,4 +114,49 @@
 .card__button {
   margin: 0 auto;
   margin-top: 60px;
+}
+
+@media (min-width: 1920px) {
+  .card {
+    max-width: 1920px;
+    padding: 53px 100px 256px 100px;
+  }
+
+  .card__wrapper li {
+    margin-right: 30px;
+  }
+
+  .card__wrapper li:nth-child(4n + 4) {
+    margin-right: 30px;
+  }
+
+  .card__wrapper li:nth-child(5n + 5) {
+    margin-right: 0;
+  }
+
+  .card__wrapper li:nth-child(n + 5) {
+    margin-top: 0;
+  }
+
+  .card__wrapper li:nth-child(n + 6) {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 1507px) {
+  .card__wrapper li:nth-child(3n + 3) {
+    margin-right: 0;
+  }
+
+  .card__wrapper li:nth-child(4n + 4) {
+    margin-right: 30px;
+  }
+
+  .card__wrapper li:nth-child(5n + 5) {
+    margin-right: 30px;
+  }
+
+  .card__wrapper li:nth-child(n + 4) {
+    margin-top: 30px;
+  }
 }
