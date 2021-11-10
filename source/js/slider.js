@@ -1,40 +1,36 @@
 'use strict';
 
 (function () {
-  const postList = document.querySelector('.news__list');
-  const itemWIdth = postList.querySelector('li:first-child').offsetWidth;
-  const dots = document.querySelector('.news__select-list').querySelectorAll('.news__select-item');;
-  const dotsList = Array.from(dots);
+  const newsList = document.querySelector('.news__list');
+  const itemWIdth = newsList.querySelector('li:first-child').offsetWidth;
+  const newsTitle = document.querySelector('.news__select-list').querySelectorAll('.news__select-item');;
+  const newsTitleList = Array.from(newsTitle);
 
-  console.log(dots);
-  console.log(dotsList);
-
-  if (postList) {
-    var position = 0;
+  if (newsList) {
+    let position = 0;
 
     const setActiveElement = function (element) {
       const activeElement = document.querySelector('.news__select-item--active');
-      console.log(activeElement)
       activeElement.classList.remove('news__select-item--active');
       element.classList.add('news__select-item--active');
     }
 
     window.addEventListener('resize', function() {
-      postList.style.transform = 'translateX(' + 0 + 'px)';
-      setActiveElement(dotsList[0]);
+      newsList.style.transform = 'translateX(' + 0 + 'px)';
+      setActiveElement(newsTitleList[0]);
     });
 
-    for (const dot of dotsList) {
+    for (const dot of newsTitleList) {
       dot.addEventListener('click', function (evt) {
         console.log(itemWIdth);
-        if (dotsList.findIndex(dot => evt.target === dot) < dotsList.findIndex(dot => dot.classList.contains('news__select-item--active'))) {
-          position += itemWIdth*((dotsList.findIndex(dot => dot.classList.contains('news__select-item--active')))-(dotsList.findIndex(dot => evt.target === dot)));
+        if (newsTitleList.findIndex(dot => evt.target === dot) < newsTitleList.findIndex(dot => dot.classList.contains('news__select-item--active'))) {
+          position += itemWIdth*((newsTitleList.findIndex(dot => dot.classList.contains('news__select-item--active')))-(newsTitleList.findIndex(dot => evt.target === dot)));
           setActiveElement(dot);
-          postList.style.transform = 'translateX(' + position + 'px)';
-        } else if (dotsList.findIndex(dot => evt.target === dot) > dotsList.findIndex(dot => dot.classList.contains('news__select-item--active'))) {
-          position = position - itemWIdth*((dotsList.findIndex(dot => evt.target === dot)) - (dotsList.findIndex(dot => dot.classList.contains('news__select-item--active'))));
+          newsList.style.transform = 'translateX(' + position + 'px)';
+        } else if (newsTitleList.findIndex(dot => evt.target === dot) > newsTitleList.findIndex(dot => dot.classList.contains('news__select-item--active'))) {
+          position = position - itemWIdth*((newsTitleList.findIndex(dot => evt.target === dot)) - (newsTitleList.findIndex(dot => dot.classList.contains('news__select-item--active'))));
           setActiveElement(dot);
-          postList.style.transform = 'translateX(' + position + 'px)';
+          newsList.style.transform = 'translateX(' + position + 'px)';
         }
       });
     }

@@ -1,40 +1,133 @@
+const createCardTemplate = (card) => {
+
+  return `<a href="#">
+              <img src="img/nature2.png" width="320" height="185" alt="Bridge">
+              <div class="card__desription-wrapper">
+                <h3>${card.title}</h3>
+                <p>How to increase your productivity with a Music</p>
+                <span>${card.body}</span>
+                <div class="card__author-wrapper">
+                  <p>
+                    Posted by <span>${card.userId}</span>, on <time datetime="2019-07-24">July  24, 2019</time>
+                  </p>
+                </div>
+                <div class="card__continue-button">
+                  Continue reading
+                </div>
+              </div>
+            </a>`
+};
+
+class Card {
+  constructor(card) {
+    this._card = card;
+  }
+
+  getTemplate() {
+    return createCardTemplate(this._card);
+  }
+}
+
 'use strict';
 
 (function () {
-  const postList = document.querySelector('.news__list');
-  const itemWIdth = postList.querySelector('li:first-child').offsetWidth;
-  const dots = document.querySelector('.news__select-list').querySelectorAll('.news__select-item');;
-  const dotsList = Array.from(dots);
+  //const URLGET = 'https://jsonplaceholder.typicode.com/posts';
+  const card = document.querySelector('.card');
 
-  console.log(dots);
-  console.log(dotsList);
+  if (card) {
+    const loadButton = card.querySelector('.card__button a');
+    const cardList = card.querySelector('ul');
 
-  if (postList) {
-    var position = 0;
+    //const load = function() {
+    //  let xhr = new XMLHttpRequest();
+    //  xhr.open("GET", URLGET);
+    //  xhr.onload = function (){
+    //    localStorage.setItem("Data", xhr.responseText);
+    //  }
+    //  xhr.send(null);
+    //}
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+    .then((response) => response.json())
+    .then((json) => {
+      const ff = json;
+      return ff;
+    });
+
+    console.log(ff);
+
+    const addCard = function(template) {
+      const lol = document.createElement('li');
+      lol.innerHTML = `<a href="#">
+                        <img src="img/nature2.png" width="320" height="185" alt="Bridge">
+                        <div class="card__desription-wrapper">
+                          <h3>${template.title}</h3>
+                          <p>How to increase your productivity with a Music</p>
+                          <span>${template.body}</span>
+                          <div class="card__author-wrapper">
+                            <p>
+                              Posted by <span>${template.userId}</span>, on <time datetime="2019-07-24">July  24, 2019</time>
+                            </p>
+                          </div>
+                          <div class="card__continue-button">
+                            Continue reading
+                          </div>
+                        </div>
+                       </a>`;
+      cardList.appendChild(lol);
+    }
+
+    loadButton.addEventListener('click', function() {
+      //load();
+      const gg = localStorage.getItem("Data");
+      console.log(gg[0])
+      if (gg.length > 0) {
+        //gg.slice(0,5).map(item => {
+        //  console.log(item)
+        //})
+        //console.log(gg)
+        //for (let i = 0 ; i <=5; i++) {
+        //  console.log(loadedData[i].userId);
+          addCard(gg[i]);
+        //  console.log(gg[i])
+        //}
+      }
+    })
+  }
+})();
+
+'use strict';
+
+(function () {
+  const newsList = document.querySelector('.news__list');
+  const itemWIdth = newsList.querySelector('li:first-child').offsetWidth;
+  const newsTitle = document.querySelector('.news__select-list').querySelectorAll('.news__select-item');;
+  const newsTitleList = Array.from(newsTitle);
+
+  if (newsList) {
+    let position = 0;
 
     const setActiveElement = function (element) {
       const activeElement = document.querySelector('.news__select-item--active');
-      console.log(activeElement)
       activeElement.classList.remove('news__select-item--active');
       element.classList.add('news__select-item--active');
     }
 
     window.addEventListener('resize', function() {
-      postList.style.transform = 'translateX(' + 0 + 'px)';
-      setActiveElement(dotsList[0]);
+      newsList.style.transform = 'translateX(' + 0 + 'px)';
+      setActiveElement(newsTitleList[0]);
     });
 
-    for (const dot of dotsList) {
+    for (const dot of newsTitleList) {
       dot.addEventListener('click', function (evt) {
         console.log(itemWIdth);
-        if (dotsList.findIndex(dot => evt.target === dot) < dotsList.findIndex(dot => dot.classList.contains('news__select-item--active'))) {
-          position += itemWIdth*((dotsList.findIndex(dot => dot.classList.contains('news__select-item--active')))-(dotsList.findIndex(dot => evt.target === dot)));
+        if (newsTitleList.findIndex(dot => evt.target === dot) < newsTitleList.findIndex(dot => dot.classList.contains('news__select-item--active'))) {
+          position += itemWIdth*((newsTitleList.findIndex(dot => dot.classList.contains('news__select-item--active')))-(newsTitleList.findIndex(dot => evt.target === dot)));
           setActiveElement(dot);
-          postList.style.transform = 'translateX(' + position + 'px)';
-        } else if (dotsList.findIndex(dot => evt.target === dot) > dotsList.findIndex(dot => dot.classList.contains('news__select-item--active'))) {
-          position = position - itemWIdth*((dotsList.findIndex(dot => evt.target === dot)) - (dotsList.findIndex(dot => dot.classList.contains('news__select-item--active'))));
+          newsList.style.transform = 'translateX(' + position + 'px)';
+        } else if (newsTitleList.findIndex(dot => evt.target === dot) > newsTitleList.findIndex(dot => dot.classList.contains('news__select-item--active'))) {
+          position = position - itemWIdth*((newsTitleList.findIndex(dot => evt.target === dot)) - (newsTitleList.findIndex(dot => dot.classList.contains('news__select-item--active'))));
           setActiveElement(dot);
-          postList.style.transform = 'translateX(' + position + 'px)';
+          newsList.style.transform = 'translateX(' + position + 'px)';
         }
       });
     }
@@ -44,10 +137,10 @@
 'use strict';
 
 (function () {
-  var navMain = document.querySelector('.main-nav');
+  const navMain = document.querySelector('.main-nav');
 
   if (navMain) {
-    var navToggle = document.querySelector('.main-nav__toggle');
+    const navToggle = document.querySelector('.main-nav__toggle');
 
     navMain.classList.remove('main-nav--opened');
     navMain.classList.add('main-nav--closed');

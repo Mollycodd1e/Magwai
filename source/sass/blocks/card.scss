@@ -1,5 +1,5 @@
 .card {
-  max-width: 1550px;
+  max-width: 1920px;
   padding: 53px 5.2% 256px 5.2%;
   margin: 0 auto;
   box-sizing: border-box;
@@ -16,18 +16,20 @@
 }
 
 .card__desription-wrapper {
+  display: block;
   padding: 25px 24px 30px 24px;
   background-color: #ffffff;
 }
 
 .card__wrapper {
+  max-width: 1550px;
   margin: 0 auto;
 }
 
 .card__wrapper ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: flex-start;
   padding: 0;
   margin: 0;
   margin-top: 53px;
@@ -37,6 +39,11 @@
 .card__wrapper li {
   width: 320px;
   margin-right: 1.74%;
+}
+
+.card__wrapper li:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 10px #c2ab81;
 }
 
 .card__wrapper li:nth-child(4n + 4) {
@@ -98,6 +105,11 @@
 
 .card__wrapper a {
   display: block;
+  text-decoration: none;
+}
+
+.card__continue-button  {
+  display: block;
   margin-top: 25px;
   padding-top: 16px;
   padding-bottom: 16px;
@@ -106,9 +118,12 @@
   line-height: 18px;
   font-weight: 600;
   text-align: center;
-  text-decoration: none;
   color: #ffffff;
   background-color: #171717;
+}
+
+.card__continue-button:hover {
+  background-color: #c2ab81;
 }
 
 .card__button {
@@ -118,8 +133,11 @@
 
 @media (min-width: 1920px) {
   .card {
-    max-width: 1920px;
     padding: 53px 100px 256px 100px;
+  }
+
+  .card__wrapper {
+    max-width: 1920px;
   }
 
   .card__wrapper li {
@@ -144,6 +162,10 @@
 }
 
 @media (max-width: 1507px) {
+  .card__wrapper ul {
+    justify-content: space-between;
+  }
+
   .card__wrapper li:nth-child(3n + 3) {
     margin-right: 0;
   }
@@ -157,6 +179,24 @@
   }
 
   .card__wrapper li:nth-child(n + 4) {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 1139px) {
+  .card__wrapper {
+    max-width: 1000px;
+  }
+
+  .card__wrapper li:nth-child(3n + 3) {
+    margin-right: 30px;
+  }
+
+  .card__wrapper li:nth-child(2n + 2) {
+    margin-right: 0;
+  }
+
+  .card__wrapper li:nth-child(n + 3) {
     margin-top: 30px;
   }
 }

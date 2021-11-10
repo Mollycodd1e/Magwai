@@ -1,10 +1,10 @@
 'use strict';
 
 (function () {
-  var navMain = document.querySelector('.main-nav');
+  const navMain = document.querySelector('.main-nav');
 
   if (navMain) {
-    var navToggle = document.querySelector('.main-nav__toggle');
+    const navToggle = document.querySelector('.main-nav__toggle');
 
     navMain.classList.remove('main-nav--opened');
     navMain.classList.add('main-nav--closed');

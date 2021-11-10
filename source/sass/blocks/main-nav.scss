@@ -18,6 +18,7 @@
   width: 93px;
   margin-right: 60px;
   border: none;
+  cursor: pointer;
   background-color: transparent;
 }
 
@@ -26,6 +27,18 @@
   margin-top: 10px;
   border-radius: 5px;
   background-color: #ffffff;
+}
+
+.main-nav__toggle:hover div {
+  background-color: #c2ab81;
+}
+
+.main-nav--opened .main-nav__toggle div {
+  background-color: #800880;
+}
+
+.main-nav--opened .main-nav__toggle:hover div {
+  opacity: 0.79
 }
 
 .main-nav__toggle div:first-child {
