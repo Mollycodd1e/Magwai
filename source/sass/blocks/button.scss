@@ -39,3 +39,9 @@
 .button:hover a::after {
   background-color: #800880;
 }
+
+@media(max-width: $tablet-width-only) {
+  .button {
+    width: 202px;
+  }
+}

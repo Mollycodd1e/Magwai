@@ -16,9 +16,12 @@
 }
 
 .card__desription-wrapper {
-  display: block;
+  //display: block;
+  height: 100%;
   padding: 25px 24px 30px 24px;
   background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
 }
 
 .card__wrapper {
@@ -89,6 +92,10 @@
   color: #171717;
 }
 
+.card__author-wrapper {
+  margin-bottom: 25px;
+}
+
 .card__author-wrapper p {
   margin: 0;
   margin-top: 20px;
@@ -104,13 +111,16 @@
 }
 
 .card__wrapper a {
-  display: block;
+  //display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   text-decoration: none;
 }
 
 .card__continue-button  {
   display: block;
-  margin-top: 25px;
+  margin-top: auto;
   padding-top: 16px;
   padding-bottom: 16px;
   font-family: $mulish;
@@ -129,6 +139,7 @@
 .card__button {
   margin: 0 auto;
   margin-top: 60px;
+  cursor: pointer;
 }
 
 @media (min-width: 1920px) {
@@ -171,11 +182,11 @@
   }
 
   .card__wrapper li:nth-child(4n + 4) {
-    margin-right: 30px;
+    margin-right: 1.74%;
   }
 
   .card__wrapper li:nth-child(5n + 5) {
-    margin-right: 30px;
+    margin-right: 1.74%;
   }
 
   .card__wrapper li:nth-child(n + 4) {
@@ -188,7 +199,9 @@
     max-width: 1000px;
   }
 
-  .card__wrapper li:nth-child(3n + 3) {
+  .card__wrapper li:nth-child(3n + 3),
+  .card__wrapper li:nth-child(5n + 5),
+  .card__wrapper li:nth-child(4n + 4) {
     margin-right: 30px;
   }
 
