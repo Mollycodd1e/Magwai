@@ -45,3 +45,14 @@
     width: 202px;
   }
 }
+
+
+@media(max-width: $mobile-width-only) {
+  .button {
+    width: 100%;
+  }
+
+  .button a::after {
+    display: none;
+  }
+}

@@ -126,3 +126,23 @@
     margin-right: -860px;
   }
 }
+
+@media(max-width: $tablet-width-only) {
+  .news__content-wrapper {
+    max-width: 500px;
+  }
+
+  .news__list h3 {
+    font-size: 34px;
+    line-height: 43px;
+  }
+
+  .news__list p {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .news__select-item {
+    font-size: 14px;
+  }
+}

@@ -7,3 +7,9 @@
     position: relative;
   }
 }
+
+@media(max-width: $mobile-width-only) {
+  .main-header {
+    min-height: 71px;
+  }
+}
